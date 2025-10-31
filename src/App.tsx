@@ -22,6 +22,11 @@ import AdminLayout from './admin/components/layout/AdminLayout';
 import Login from './admin/pages/Login';
 import Dashboard from './admin/pages/Dashboard';
 
+// 🆕 Navigation CRUD
+import NavigationList from './admin/pages/navigation/NavigationList';
+import NavigationCreate from './admin/pages/navigation/NavigationCreate';
+import NavigationEdit from './admin/pages/navigation/NavigationEdit';
+
 function App() {
   return (
     <Router>
@@ -80,6 +85,13 @@ function App() {
               
               {/* Dashboard */}
               <Route path="dashboard" element={<Dashboard />} />
+              
+              {/* 🆕 Navigation CRUD */}
+              <Route path="navigation">
+                <Route index element={<NavigationList />} />
+                <Route path="create" element={<NavigationCreate />} />
+                <Route path=":id/edit" element={<NavigationEdit />} />
+              </Route>
               
               {/* Autres routes admin seront ajoutées dans les prochaines phases */}
             </Route>
